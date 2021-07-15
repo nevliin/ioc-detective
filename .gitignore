@@ -1,0 +1,9 @@
+/venv/
+/.idea/
+**/result.yaml
+data/*/*
+!data/*/.gitkeep
+**/layout.yaml
+/documents/
+**/__pycache__
+**/.pytest_cache

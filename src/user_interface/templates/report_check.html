@@ -1,0 +1,50 @@
+{% extends 'index.html' %}
+
+
+{% block content %}
+<div class="site-content">
+    <h1>Security Reports</h1>
+    <p>Last updated:
+        {% if last_updated is not none %}
+        {{last_updated.strftime('%Y-%m-%d %H:%M')}}
+        {% else %}
+        Never
+        {% endif%}
+    </p>
+    {% if not github_repos_configured %}
+    <p>No GitHub repository configured to pull reports from. Consider adding one in the config.json.</p>
+    {% endif %}
+    {% if reports|length > 0 %}
+    <center>
+        <div>
+            <table class="custom-table">
+                <tr>
+                    <th>Report-Name</th>
+                    <th>Last Updated</th>
+                    <th>Report-URL</th>
+                    <th>Generate Sigma Rule</th>
+                </tr>
+                {% for report in reports %}
+                <tr>
+                    <td id="td_report_name">{{report['name']}}</td>
+                    <td id="td_last_updated">{{report['last_updated'].strftime('%Y-%m-%d')}}</td>
+                    <td id="td_report_url"><a href="{{report['url']}}">{{report['name']}}</a></td>
+                    <td id="td_generate"><a href="{{url_for('generate_from_url', url=report['url'])}}" class="btn">Generate</a>
+                    </td>
+                </tr>
+
+                <!--<div style="border: 1px solid Black;">-->
+                <!--    <b>{{report['name']}}</b>-->
+                <!--    <span>{{report['last_updated'].strftime('%Y-%m-%d')}}</span>-->
+                <!--    <a href="{{report['url']}}">{{report['url']}}</a>-->
+                <!--    <a href="{{url_for('generate_from_url', url=report['url'])}}">Regel generieren</a>-->
+                <!--</div>-->
+                {% endfor %}
+            </table>
+        </div>
+    </center>
+    {% else %}
+    <p>No reports to display</p>
+    {% endif %}
+</div>
+{% endblock content %}

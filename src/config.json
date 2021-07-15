@@ -1,0 +1,20 @@
+{
+  "port": 5000,
+  "github_repos": [
+    {
+      "url": "https://api.github.com/repos/CyberMonitor/APT_CyberCriminal_Campagin_Collections",
+      "github_authn_user": "replace_with_user",
+      "github_authn_token": "replace_with_personal_access_token"
+    }
+  ],
+  "wiki": "https://example.com/replace-with-wiki-link",
+  "denylist_paragraphs": [
+    "TLP:WHITE",
+    "TLP:GREEN",
+    "TLP:RED",
+    "TLP:AMBER",
+    "Bundesamt für Sicherheit in der Informationstechnik",
+    ""
+  ],
+  "flask_secret_key": "replace_with_secret_key"
+}

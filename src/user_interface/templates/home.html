@@ -1,0 +1,28 @@
+{% extends 'index.html' %}
+
+
+{% block content %}
+<center>
+    <br/>
+    <div id="d_guide">
+        <p style="" id="p_guide"> <br/>
+            <h1>Willkommen bei IOC Detective</h1><br/>
+            <h5>einem Tool für das Extrahieren von IoCs aus Sicherheitsberichten. </h5> <br/> <br/>
+
+            <b>Upload:</b> Über diesen Reiter können Sie Berichte hochladen <br/>
+            und eine Sigma-Regel im YAML Format generieren<br/><br>
+
+            <b>Git Reports:</b> Dieser Reiter zeigt Ihnen die neusten <br/>
+            Sicherheitsberichte an und lässt Sie diese verarbeiten.<br/><br/>
+
+            <b>Settings:</b> Hier können Sie Gruppen von Indikatoren aus- bzw. abwählen.<br/>
+             <br/>
+
+            Weitere Informationen zur Verwendung finden Sie im <a href="{{wiki_link}}">Wiki</a>.
+            <br>
+            <br>
+            <br>
+        </p>
+    </div>
+</center>
+{% endblock content %}

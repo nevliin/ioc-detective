@@ -1,0 +1,38 @@
+{% extends 'index.html' %}
+
+
+{% block content %}
+<div id="d_upload">
+<!--    <h1>Upload new File</h1>-->
+<!--    <form method=post enctype=multipart/form-data>-->
+<!--        <input type=file name=file>-->
+<!--        <input type=submit value=Upload>-->
+<!--    </form>-->
+    <h1>File Upload</h1>
+    <p class="lead">Possible File Formats are <b>PDF, TXT</b></p>
+
+    <!-- Upload  -->
+    <form id="file-upload-form" class="uploader">
+      <input id="file-upload" type="file" name="fileUpload" accept=".pdf, .txt" />
+
+      <label for="file-upload" id="file-drag">
+        <img id="file-image" src="/static/img/file.png" alt="Preview" class="hidden">
+        <div id="start">
+          <i class="fa fa-download" aria-hidden="true"></i>
+          <div>Select a file or drag here</div>
+          <div id="notcorrectformat" class="hidden">Please select a valid file format (pdf/txt)</div>
+          <span id="file-upload-btn" class="btn btn-primary">Select a file</span>
+        </div>
+        <div id="response" class="hidden">
+          <div id="messages"></div>
+          <progress class="progress" id="file-progress" value="0">
+            <span>0</span>%
+          </progress>
+        </div>
+      </label>
+    </form>
+</div>
+<script src="/static/js/upload.js"></script>
+
+{% endblock content %}
+

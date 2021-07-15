@@ -1,0 +1,87 @@
+{% extends 'index.html' %}
+
+
+{% block content %}
+
+<script src="/static/js/download.js"></script>
+<meta id="file_uuid" data-name="{{file_uuid}}">
+<meta id="filename" data-name="{{report_name}}">
+<div class="site-content">
+    <h1>Sigma Rule for {{report_name}}</h1>
+
+    <div id="d_download_button" onclick="generateSigma()">
+        <a class="btn">Download</a>
+    </div>
+    <!--<a href="download-file?file_uuid={{file_uuid}}&report_name={{report_name}}">Download</a>-->
+
+    {% if info_logs|length > 0 %}
+        <h2 style="margin-top: 20px; color: #5f6982">General Logs</h2>
+        <center>
+            <div id="d_logs">
+                <table id="t_logs" class="custom-table">
+                    <tr>
+                        <th>Id</th>
+                        <th>Tag</th>
+                        <th>Message</th>
+                    </tr>
+                    {% for l in info_logs %}
+                        <tr>
+                            <td>{{loop.index}}</td>
+                            <td>{{l[0]}}</td>
+                            <td>{{l[1]}}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </center>
+    {% endif %}
+
+    {% if indicator_logs|length > 0 %}
+        <h2 style="margin-top: 30px; color: #5f6982">Indicators of Compromise</h2>
+        <center>
+            <div id="d_ioc">
+                <table id="t_ioc" class="custom-table">
+                <tr>
+                    <th>Indicator Group</th>
+                    <th>Type</th>
+                    <th>Value</th>
+                    <th>Context</th>
+                    <th>Selection</th>
+                </tr>
+                {% for group in indicator_logs %}
+                    <tr>
+                        {% set current_group = loop.index%}
+                        <td rowspan="{{group|length}}">{{current_group}}</td>
+                        <td>{{group[0][0]}} </td>
+                        <td>{{group[0][1]}} </td>
+                        <td>{{group[0][2]}}<b>{{group[0][1]}}</b>{{group[0][3]}}</td>
+                        <td style="text-align: center; vertical-align: middle;"> <input class="ioc_checkbox" type="checkbox" name="myTextEditBox" checked value={{group[0][4]}}></td>
+                    </tr>
+                    {% for indicator in group %}
+                        {% if loop.index > 1 %}
+                            <tr>
+                                <td>{{group[loop.index-1][0]}} </td>
+                                <td>{{group[loop.index-1][1]}} </td>
+                                <td>{{group[loop.index-1][2]}}<b>{{group[loop.index-1][1]}}</b>{{group[loop.index-1][3]}} </td>
+                                <td style="text-align: center; vertical-align: middle;"> <input class="ioc_checkbox" type="checkbox" name="myTextEditBox" checked value="{{group[loop.index-1][4]}}"></td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                {% endfor %}
+                </table>
+            </div>
+        </center>
+    {% endif %}
+</div>
+
+<!--<p style="border: 1px solid Black;">-->
+<!--    {% if logs is defined %}-->
+<!--        {% for log in logs %}-->
+<!--            {{log|safe}}<br>-->
+<!--        {% endfor %}-->
+<!--    {% else %}-->
+<!--        No logs to display-->
+<!--    {% endif %}-->
+<!--</p>-->
+
+{% endblock content %}
