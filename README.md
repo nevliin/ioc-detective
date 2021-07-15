@@ -23,6 +23,3 @@ A project for automatically converting PDF security reports into sigma rules for
 
 * Library Documentation: https://pdfminersix.readthedocs.io/en/latest/index.html
 * On parsing PDFs: https://pdfminersix.readthedocs.io/en/latest/topic/converting_pdf_to_text.html
-
-## Final Presentation
-https://docs.google.com/presentation/d/1e8sEtjrQ9ZlkP_dYkFg9V4payJeuD5HLpaPkNU-VjBo/edit?usp=sharing
