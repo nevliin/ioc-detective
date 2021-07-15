@@ -41,7 +41,6 @@ class LogStringPattern(IndicatorPattern):
             current_string += char.get_text()
 
         # Check for named entities
-        # Todo locale prediction
         sentences = paragraph.get_sentences()
         # python -m spacy download de_core_news_sm
 
