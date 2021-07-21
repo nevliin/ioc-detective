@@ -9,9 +9,9 @@ A project for automatically converting PDF security reports into sigma rules for
 * Execute ``pip install -r requirements.txt`` at the top level of this repository.
 * Fill in the ``src/config.json``
   * Add your github user name in ``github_authn_user`` and a personal access token in ``github_authn_token`` (only used for increased API rate limiting)
-  * (Optional) Add a link to the wiki to be display on the home page of the web interface.
+  * (Optional) Add a link to the wiki to be displayed on the home page of the web interface.
   * Set ``flask_secret_key`` to a secure random value.
-* Execute ``python3 -m src.main`` at the top levle of this repository.
+* Execute ``python3 -m src.main`` at the top level of this repository.
 * Open ``localhost:5000`` in your browser.
 
 ## Testing
